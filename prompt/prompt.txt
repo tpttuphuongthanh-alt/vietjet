@@ -1,0 +1,87 @@
+================================================================================
+BỘ PROMPT CHUẨN DÀNH CHO ANTIGRAVITY - DỰ ÁN VIETJET TRAVEL
+================================================================================
+
+--- CÁCH 1: XÂY DỰNG TOÀN BỘ PROJECT (ONE-SHOT BUILD) ---
+Copy prompt bên dưới và gửi cho Antigravity:
+
+"Chào Antigravity! Tôi đang xây dựng website Du lịch Vietjet.
+Hãy đọc kỹ toàn bộ các file đặc tả trong thư mục này:
+- PROJECT.md
+- DESIGN.md
+- DATA.md
+- FUNCTIONAL.md
+- IMPLEMENTATION.md
+
+Sau khi đọc xong, hãy tạo toàn bộ cấu trúc dự án và viết code hoàn chỉnh cho tất cả các file:
+1. HTML: index.html, flights.html, flight-detail.html, tours.html, tour-detail.html, cart.html
+2. CSS: css/style.css, css/home.css, css/flights.css, css/tours.css, css/cart.css
+3. JS: js/db.js (khởi tạo SQLite sql.js), js/common.js, js/home.js, js/flights.js, js/flight-detail.js, js/tours.js, js/tour-detail.js, js/cart.js
+4. Data: data/schema.sql, data/seed.sql
+Đảm bảo giao diện tông màu sáng, nền trắng, màu đỏ chủ đạo (#ee1d23), chạy mượt mà không cần backend và có chức năng gửi email xác nhận từ nvhai061993@gmail.com khi đặt hàng thành công."
+
+
+================================================================================
+--- CÁCH 2: XÂY DỰNG TỪNG MODULE (STEP-BY-STEP VIBE CODING) ---
+(Khuyên dùng để kiểm soát chất lượng code từng bước)
+
+[PROMPT BƯỚC 0 - ĐỌC ĐẶC TẢ]:
+"Antigravity, hãy đọc toàn bộ các file .MD trong thư mục hiện tại bao gồm: PROJECT.md, DESIGN.md, DATA.md, FUNCTIONAL.md, IMPLEMENTATION.md. Hãy tóm tắt lại kiến trúc hệ thống và xác nhận bạn đã nắm rõ yêu cầu trước khi bắt đầu code module đầu tiên."
+
+
+[PROMPT BƯỚC 1 - TẠO CƠ SỞ DỮ LIỆU SQLITE & CSS CHUNG]:
+"Dựa trên các file .MD, hãy xây dựng Module 1: Cấu trúc cơ sở dữ liệu SQLite trong trình duyệt và Style nền tảng.
+Tạo các file:
+- data/schema.sql (6 bảng: airlines, airports, flights, tours, orders, order_items)
+- data/seed.sql (dữ liệu mẫu đầy đủ các hãng bay, chuyến bay nhiều khung giờ, 8 tour nổi bật có thumbnail 600x400)
+- js/db.js (nạp SQLite sql.js WebAssembly, tự tạo database và lưu trữ LocalStorage)
+- css/style.css (biến màu đỏ #ee1d23, nền trắng, reset CSS, header có badge giỏ hàng, footer)
+- js/common.js (quản lý giỏ hàng chung, format tiền VND, toast thông báo)
+Hãy trả về code hoàn chỉnh và đảm bảo không có lỗi."
+
+
+[PROMPT BƯỚC 2 - XÂY DỰNG TRANG CHỦ (INDEX.HTML)]:
+"Dựa trên các file .MD, hãy xây dựng Module 2: Trang Chủ (index.html).
+Bao gồm:
+- Thanh tìm kiếm chuyến bay: Chọn khứ hồi / một chiều (toggle ngày về), điểm đi, điểm đến, ngày bay, số khách. Click 'Tìm Kiếm' chuyển sang flights.html kèm tham số.
+- Phần 8 Tour du lịch nổi bật: Lấy từ SQLite, hiển thị ảnh thumbnail 600x400, hãng lữ hành, số ngày/đêm, giá tiền. Click dẫn đến trang tour.
+- Phần Logo các hãng hàng không: VietJet Air, Vietnam Airlines, Singapore Airlines, Bamboo Airways... Click logo chuyển sang flights.html và lọc theo hãng.
+Tạo file index.html, css/home.css, js/home.js tuân thủ đúng DESIGN.md và FUNCTIONAL.md."
+
+
+[PROMPT BƯỚC 3 - XÂY DỰNG TRANG CHUYẾN BAY (FLIGHTS.HTML)]:
+"Dựa trên các file .MD, hãy xây dựng Module 3: Trang Chuyến Bay (flights.html).
+Bao gồm:
+- Cột bên trái: Bộ lọc sắp xếp giá tăng/giảm dần, vé khứ hồi/một chiều/bay thẳng/nhiều thành phố, lọc theo các hãng hàng không, lọc theo 4 khung giờ cất cánh, lọc hạng dịch vụ (phổ thông/thương gia), nút reset bộ lọc.
+- Cột bên phải: Danh sách các chuyến bay truy vấn từ SQLite, logo hãng, giờ cất cánh, thời gian bay, giờ hạ cánh, giá vé màu đỏ to rõ, dịch vụ đi kèm.
+- Click 'Chọn Chuyến Bay' dẫn đến flight-detail.html?id=...
+Tạo file flights.html, css/flights.css, js/flights.js."
+
+
+[PROMPT BƯỚC 4 - XÂY DỰNG TRANG CHI TIẾT CHUYẾN BAY (FLIGHT-DETAIL.HTML)]:
+"Dựa trên các file .MD, hãy xây dựng Module 4: Trang Chi Tiết Chuyến Bay (flight-detail.html).
+Bao gồm:
+- Hiển thị điểm đi, điểm đến, thời gian bay, hãng bay, loại máy bay (Boeing, Airbus...).
+- Bảng lựa chọn 2 hạng vé so sánh song song: Hạng Phổ Thông vs Hạng Thương Gia (giá vé, hành lý, dịch vụ phòng chờ, ăn uống).
+- Nút 'Chọn vé & Thêm vào Giỏ Hàng': Lưu thông tin vào giỏ hàng và cập nhật badge trên Header.
+Tạo file flight-detail.html và js/flight-detail.js."
+
+
+[PROMPT BƯỚC 5 - XÂY DỰNG TRANG TOUR & CHI TIẾT TOUR]:
+"Dựa trên các file .MD, hãy xây dựng Module 5: Trang Tour (tours.html) và Chi Tiết Tour (tour-detail.html).
+Bao gồm:
+- tours.html: Bộ lọc bên trái (giá vé, hãng hàng không, thời gian cất cánh) và danh sách tour bên phải có ảnh 600x400.
+- tour-detail.html: Điểm đi, điểm đến, thời gian bay, hãng bay, loại máy bay (Boeing, Airbus...). Lịch trình chuyến đi chi tiết từng ngày (Day-by-Day Itinerary), các dịch vụ bao gồm. Nút 'Đặt Tour / Thêm vào Giỏ Hàng'.
+Tạo tours.html, tour-detail.html, css/tours.css, js/tours.js, js/tour-detail.js."
+
+
+[PROMPT BƯỚC 6 - XÂY DỰNG TRANG GIỎ HÀNG & GỬI EMAIL XÁC NHẬN (CART.HTML)]:
+"Dựa trên các file .MD, hãy xây dựng Module 6: Trang Giỏ Hàng & Hoàn Tất Đơn Hàng (cart.html).
+Bao gồm:
+- Xem danh sách các chuyến bay và tour đã chọn. Hỗ trợ xóa từng mục hoặc xóa toàn bộ giỏ hàng, tự động tính tổng tiền.
+- Form nhập thông tin cá nhân: Họ tên, Số điện thoại, Email, Số CMND/CCCD/Hộ chiếu, Ghi chú.
+- Khi bấm 'Đăng Ký / Đặt Vé':
+  + Lưu đơn hàng vào database SQLite (bảng orders và order_items).
+  + Kích hoạt gửi email xác nhận từ 'nvhai061993@gmail.com' đến email của khách hàng.
+  + Hiển thị modal thông báo hoàn thành đơn hàng thành công, hiển thị mã đơn hàng và thông báo đã gửi email đến khách.
+Tạo file cart.html, css/cart.css, js/cart.js."

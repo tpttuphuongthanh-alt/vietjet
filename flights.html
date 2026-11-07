@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm Kiếm Chuyến Bay - Vietjet Travel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flights.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="images/download2.png" alt="Vietjet Logo" onerror="this.src='images/download.jpg'">
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+        <a href="flights.html" class="nav-link active"><i class="fa-solid fa-plane-departure"></i> Chuyến Bay</a>
+        <a href="tours.html" class="nav-link"><i class="fa-solid fa-umbrella-beach"></i> Tour Du Lịch</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:19001886" class="hotline-btn">
+          <i class="fa-solid fa-phone-volume"></i> 1900 1886
+        </a>
+        <a href="cart.html" class="cart-btn" title="Xem giỏ hàng">
+          <i class="fa-solid fa-suitcase-rolling"></i>
+          <span>Giỏ Hàng</span>
+          <span class="cart-badge" style="display: none;">0</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flights-page-section">
+    <div class="container">
+      <div class="ota-layout-grid">
+        
+        <!-- Cột Bên Trái: Bộ Lọc (Filter Sidebar) -->
+        <aside class="filter-sidebar">
+          <div class="filter-sidebar-header">
+            <h3><i class="fa-solid fa-filter"></i> Bộ Lọc Tìm Kiếm</h3>
+            <button type="button" class="btn-reset-filter" id="btnResetFilters">Đặt lại</button>
+          </div>
+
+          <!-- 1. Sắp xếp giá vé -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-arrow-down-short-wide"></i> Sắp Xếp Giá Vé</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="radio" name="sortByPrice" value="price_asc" checked id="sortPriceAsc">
+                <span>Giá vé tăng dần (Thấp - Cao)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="radio" name="sortByPrice" value="price_desc" id="sortPriceDesc">
+                <span>Giá vé giảm dần (Cao - Thấp)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 2. Loại vé & Hành trình -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-route"></i> Loại Vé & Chuyến Bay</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterDirectOnly" checked>
+                <span>Bay thẳng (Direct Flight)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterRoundtrip">
+                <span>Vé khứ hồi</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterOneway">
+                <span>Vé một chiều</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterMulticity">
+                <span>Nhiều thành phố</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Các Hãng Hàng Không -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-plane"></i> Hãng Hàng Không</h4>
+            <div class="filter-options-list" id="airlineFilterList">
+              <!-- Render động danh sách checkbox hãng từ SQLite -->
+            </div>
+          </div>
+
+          <!-- 4. Thời Gian Cất Cánh (Khung Giờ) -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-clock"></i> Thời Gian Cất Cánh</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="time-filter-cb" value="early_morning">
+                <span>Sáng sớm (00:00 - 06:00)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="time-filter-cb" value="morning">
+                <span>Buổi sáng (06:00 - 12:00)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="time-filter-cb" value="afternoon">
+                <span>Buổi chiều (12:00 - 18:00)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="time-filter-cb" value="night">
+                <span>Buổi tối (18:00 - 24:00)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 5. Hạng Dịch Vụ -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-couch"></i> Hạng Dịch Vụ</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterEconomy" checked>
+                <span>Hạng Phổ Thông (Eco / Deluxe)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="filterBusiness" checked>
+                <span>Hạng Thương Gia (SkyBoss / VIP)</span>
+              </label>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Cột Bên Phải: Danh Sách Chuyến Bay -->
+        <section class="flights-content-area">
+          <!-- Summary Bar -->
+          <div class="results-summary-bar">
+            <div class="results-info">
+              <h2 id="routeSummaryTitle">Tất Cả Các Chuyến Bay</h2>
+              <p id="routeSummarySub">Hiển thị lịch bay cập nhật trực tiếp từ cơ sở dữ liệu SQLite (db.db)</p>
+            </div>
+            <div class="results-count-badge" id="resultsCountBadge">
+              Đang tải...
+            </div>
+          </div>
+
+          <!-- Container Chuyến Bay -->
+          <div id="flightListContainer" style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Render động từ SQLite bằng JavaScript -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3><i class="fa-solid fa-plane-up"></i> Vietjet Travel</h3>
+          <p>Hệ thống đặt vé máy bay trực tuyến và tour du lịch trọn gói hàng đầu. Tiết kiệm, an toàn, nhanh chóng.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Về Vietjet</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="flights.html">Chuyến bay</a></li>
+            <li><a href="tours.html">Tour du lịch</a></li>
+            <li><a href="cart.html">Giỏ hàng</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Chính Sách</h4>
+          <ul class="footer-links">
+            <li><a href="#">Quy định vé</a></li>
+            <li><a href="#">Hành lý miễn cước</a></li>
+            <li><a href="#">Bảo hiểm bay</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Hỗ Trợ</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-phone"></i> <span>1900 1886 (24/7)</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span>nvhai061993@gmail.com</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Vietjet Travel. Nền tảng SQLite WebAssembly.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SQLite WebAssembly Engine & Controllers -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/flights.js"></script>
+
+</body>
+</html>

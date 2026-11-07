@@ -1,0 +1,466 @@
+/* ==========================================================================
+   VIETJET TRAVEL - FLIGHTS & FLIGHT DETAILS STYLES (flights.css)
+   ========================================================================== */
+
+.flights-page-section {
+  padding: 40px 0 80px;
+  background-color: #f8fafc;
+}
+
+/* 2-Column OTA Layout */
+.ota-layout-grid {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* Sidebar Filters */
+.filter-sidebar {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 96px;
+}
+
+.filter-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.filter-sidebar-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-reset-filter {
+  background: none;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.filter-group {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-group-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-checkbox-label input[type="checkbox"],
+.filter-checkbox-label input[type="radio"] {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+/* Flight Content Area */
+.flights-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.results-summary-bar {
+  background-color: var(--color-white);
+  padding: 18px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.results-info h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.results-info p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.results-count-badge {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+}
+
+/* Flight Card */
+.flight-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  gap: 24px;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.flight-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.flight-airline-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.flight-airline-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.flight-airline-info h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.flight-code {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background-color: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.flight-schedule-col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.flight-time-point {
+  text-align: center;
+}
+
+.flight-time {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.flight-airport {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.flight-timeline-connector {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.flight-duration {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.flight-timeline-line {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-border);
+}
+
+.flight-timeline-line::after {
+  content: '\f072';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  padding: 0 4px;
+  font-size: 13px;
+}
+
+.flight-type-badge {
+  font-size: 11px;
+  color: var(--color-success);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.flight-action-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.flight-price-from {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.flight-price-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   FLIGHT DETAILS PAGE STYLES (flight-detail.html)
+   ========================================================================== */
+.flight-detail-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: 36px;
+  margin-bottom: 30px;
+}
+
+.flight-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+}
+
+.flight-route-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.flight-aircraft-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+/* Ticket Class Comparison Cards (Phổ Thông vs Thương Gia) */
+.ticket-classes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.ticket-class-card {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  background-color: var(--color-white);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-class-card:hover,
+.ticket-class-card.selected {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.ticket-class-card.selected::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.ticket-class-card.business-highlight {
+  border-color: var(--color-secondary);
+  background: linear-gradient(180deg, #fffdf0 0%, #ffffff 100%);
+}
+
+.vip-ribbon {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #e6bc00, #ffd100);
+  color: #111;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.ticket-class-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+
+.ticket-class-price {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.ticket-benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.ticket-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.ticket-benefits-list li i {
+  color: var(--color-success);
+  margin-top: 3px;
+}
+
+.ticket-class-select-btn {
+  width: 100%;
+}
+
+/* Floating Bottom Action Bar */
+.flight-bottom-bar {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flight-total-box span {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.flight-total-box h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .ota-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .filter-sidebar {
+    position: static;
+  }
+  .flight-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+  .flight-airline-col {
+    justify-content: center;
+  }
+  .flight-action-col {
+    align-items: center;
+  }
+  .ticket-classes-grid {
+    grid-template-columns: 1fr;
+  }
+}

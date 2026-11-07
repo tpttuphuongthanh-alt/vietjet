@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Du Lịch Trọn Gói - Vietjet Travel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flights.css">
+  <link rel="stylesheet" href="css/tours.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="images/download2.png" alt="Vietjet Logo" onerror="this.src='images/download.jpg'">
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+        <a href="flights.html" class="nav-link"><i class="fa-solid fa-plane-departure"></i> Chuyến Bay</a>
+        <a href="tours.html" class="nav-link active"><i class="fa-solid fa-umbrella-beach"></i> Tour Du Lịch</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:19001886" class="hotline-btn">
+          <i class="fa-solid fa-phone-volume"></i> 1900 1886
+        </a>
+        <a href="cart.html" class="cart-btn" title="Xem giỏ hàng">
+          <i class="fa-solid fa-suitcase-rolling"></i>
+          <span>Giỏ Hàng</span>
+          <span class="cart-badge" style="display: none;">0</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tours-page-section">
+    <div class="container">
+      <div class="ota-layout-grid">
+        
+        <!-- Cột Bên Trái: Filter Tour -->
+        <aside class="filter-sidebar">
+          <div class="filter-sidebar-header">
+            <h3><i class="fa-solid fa-filter"></i> Lọc Tour Du Lịch</h3>
+            <button type="button" class="btn-reset-filter" id="btnResetTourFilters">Đặt lại</button>
+          </div>
+
+          <!-- Sắp xếp giá tour -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-arrow-down-short-wide"></i> Sắp Xếp Giá Tour</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="radio" name="sortTourPrice" value="price_asc" checked id="sortTourAsc">
+                <span>Giá tăng dần (Thấp - Cao)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="radio" name="sortTourPrice" value="price_desc" id="sortTourDesc">
+                <span>Giá giảm dần (Cao - Thấp)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Hãng hàng không bay cùng tour -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-plane"></i> Hãng Hàng Không</h4>
+            <div class="filter-options-list" id="tourAirlinesFilterList">
+              <!-- Render động bằng JS -->
+            </div>
+          </div>
+
+          <!-- Thời gian cất cánh chuyến bay tour -->
+          <div class="filter-group">
+            <h4 class="filter-group-title"><i class="fa-solid fa-clock"></i> Thời Gian Cất Cánh</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="tour-time-cb" value="morning">
+                <span>Buổi sáng (06:00 - 12:00)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="tour-time-cb" value="afternoon">
+                <span>Buổi chiều (12:00 - 18:00)</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" class="tour-time-cb" value="night">
+                <span>Buổi tối & Bay đêm (18:00 - 24:00)</span>
+              </label>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Cột Bên Phải: Danh Sách Tour -->
+        <section class="flights-content-area">
+          <div class="results-summary-bar">
+            <div class="results-info">
+              <h2>Tất Cả Các Tour Du Lịch Trọn Gói</h2>
+              <p>Khởi hành hàng tuần cùng Vietjet và các hãng bay đối tác hàng đầu</p>
+            </div>
+            <div class="results-count-badge" id="toursCountBadge">
+              Đang tải...
+            </div>
+          </div>
+
+          <!-- Container danh sách tour -->
+          <div id="tourListContainer">
+            <!-- Render động từ SQLite bằng JavaScript -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 0;">
+        <p>&copy; 2026 Vietjet Travel. Nền tảng SQLite WebAssembly.</p>
+        <p>Hỗ trợ đặt tour: <strong>nvhai061993@gmail.com</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SQLite WebAssembly Engine & Controllers -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/tours.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+/* ==========================================================================
+   VIETJET TRAVEL - TOURS & TOUR DETAILS STYLES (tours.css)
+   ========================================================================== */
+
+.tours-page-section {
+  padding: 40px 0 80px;
+  background-color: #f8fafc;
+}
+
+/* Tour Card Horizontal List Item */
+.tour-list-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 280px 1fr 200px;
+  gap: 20px;
+  transition: all 0.25s ease;
+  margin-bottom: 20px;
+}
+
+.tour-list-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.tour-list-thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+}
+
+.tour-list-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-list-info {
+  padding: 20px 10px 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.tour-list-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tour-list-meta i {
+  color: var(--color-primary);
+}
+
+.tour-list-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.tour-list-services {
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.5;
+  background-color: var(--color-bg-light);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+}
+
+.tour-list-action {
+  padding: 20px;
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #fafbfc;
+}
+
+.tour-list-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   TOUR DETAILS PAGE STYLES (tour-detail.html)
+   ========================================================================== */
+.tour-hero-header {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.tour-hero-img-box {
+  width: 100%;
+  max-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-hero-img-box img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.tour-hero-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tour-hero-content {
+  padding: 30px;
+}
+
+.tour-flight-summary-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tour-flight-summary-box i {
+  color: var(--color-success);
+}
+
+/* Timeline Day-by-Day Itinerary */
+.itinerary-timeline {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 36px;
+}
+
+.itinerary-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 14px;
+  width: 3px;
+  background-color: var(--color-primary-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -36px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 0 0 4px var(--color-white), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-box {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-box h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.timeline-box p {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .tour-list-card {
+    grid-template-columns: 1fr;
+  }
+  .tour-list-thumb {
+    height: 220px;
+  }
+  .tour-list-info {
+    padding: 0 20px;
+  }
+  .tour-list-action {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    align-items: center;
+    background-color: var(--color-white);
+  }
+  .tour-flight-summary-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

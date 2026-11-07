@@ -1,0 +1,16 @@
+HƯỚNG DẪN DÙNG BỘ FILE .MD CHO ANTIGRAVITY
+==================================================
+
+1. Giới thiệu:
+Bộ tài liệu này được thiết kế chuẩn xác theo phương pháp Vibe Coding để bạn điều khiển Antigravity (hoặc các AI Coding Assistant) tự động lập trình website Du lịch Vietjet từ A - Z.
+
+2. Cấu trúc bộ tài liệu .MD gồm có:
+- PROJECT.md: Tổng quan dự án, mục tiêu, công nghệ (HTML, CSS, JS thuần, SQLite, không backend).
+- DESIGN.md: Chi tiết thiết kế giao diện (Màu đỏ #ee1d23, nền trắng, typography, wireframe 6 màn hình).
+- DATA.md: Cấu trúc cơ sở dữ liệu SQLite (6 bảng: airlines, airports, flights, tours, orders, order_items) và WebAssembly sql.js.
+- FUNCTIONAL.md: Đặc tả logic nghiệp vụ chi tiết của từng màn hình (Tìm kiếm, Lọc, Chi tiết vé, Lịch trình tour, Giỏ hàng, Gửi email từ nvhai061993@gmail.com).
+- IMPLEMENTATION.md: Lộ trình xây dựng từng module và các test case kiểm tra lỗi.
+- PROMPT.md (và prompt.txt): Các câu lệnh mẫu từng bước để bạn copy/paste cho Antigravity thực thi.
+
+3. Cách chạy dự án sau khi Antigravity tạo code:
+- Vì dự án chạy SQLite trên trình duyệt (qua sql.js WebAssembly) và dùng Fetch API, hãy mở thư mục bằng VS Code hoặc Antigravity, click chuột phải vào file "index.html" và chọn "Open with Live Server" (hoặc chạy lệnh: npx serve / http-server).
